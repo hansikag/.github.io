@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+  Updates for JPN Spring 2023
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Homework 8">
+  <meta property="og:description" content="This is a "showcase" project that uses vega-lite for interactive viz!">
+  <meta property="og:image" content="assets/pngs/cars.png">
+
+  <title>Homework 8</title>
+  <meta name="description" content="This is a "showcase" project that uses vega-lite for interactive viz!">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>Hansika's IS 445 Page</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1 id="plot-1-frequency-of-agencies">Plot 1: Frequency of Agencies</h1>
+
+<vegachart schema-url="/assets/json/agency_frequency.json" style="width: 100%"></vegachart>
+
+<p>Write Up for Plot 1:</p>
+
+<p>The first visualization is a bar chart that shows the frequency of buildings owned by each agency. The x-axis represents the ‘Agency Name’ and the y-axis represents the frequency. Each bar in the chart represents an agency, and the height of the bar indicates the number of buildings owned by that agency. The color of the bar is determined by the count, with darker colors indicating higher frequencies. This plot does not involve any data transformations on the analysis side. The interactivity in this plot is limited to the ability to hover over a bar to see the exact count.</p>
+
+<p>Encoding for Plot 1:</p>
+
+<p>The code I’ve used is using the Altair library for Python to create a bar chart. In this chart, the encoding types used are nominal (N) and quantitative (Q).</p>
+
+<p>Nominal (N): In my code, ‘Agency Name’ is encoded as nominal. This means that the ‘Agency Name’ column contains categorical data where no particular order is necessary.</p>
+
+<p>Quantitative (Q): In my code, the count function (count()) is encoded as quantitative. This means that the count of each ‘Agency Name’ is a measured quantity.</p>
+
+<p>The color encoding is also using the count() function, which means the color of the bars will represent the frequency of each ‘Agency Name’.</p>
+
+<h2 id="plot-2-construction-and-acquired-dates-for-different-agencies">Plot 2: Construction and Acquired Dates for different Agencies</h2>
+
+<vegachart schema-url="/assets/json/constructed.json" style="width: 100%"></vegachart>
+
+<p>Write Up for Plot 2:</p>
+
+<p>The second visualization is a scatter plot that represents the relationship between the year a building was constructed and the year it was acquired by different agencies. The x-axis represents the ‘Year Constructed’ and the y-axis represents the ‘Year Acquired’. Each point on the plot represents a building, and the color of the point indicates the agency that owns the building. The color encoding is based on the ‘Agency Name’ field. A dropdown selection is provided for users to select a specific agency, and the points corresponding to that agency are highlighted in the plot. This interactivity allows users to focus on the data for a specific agency, making the visualization more clear and interesting. The data transformations involved in this plot include filtering the data based on the selected ‘Agency Name’.</p>
+
+<p>Encoding for Plot 2:</p>
+
+<p>Quantitative (Q): In my code, ‘Year Constructed’ and ‘Year Acquired’ are encoded as quantitative. This means that these columns contain numerical data that represent measured quantities.</p>
+
+<p>Nominal (N): In my code, ‘Agency Name’ is encoded as nominal. This means that the ‘Agency Name’ column contains categorical data where no particular order is necessary.</p>
+
+<p>The color encoding is using a conditional statement based on the selection. If a particular ‘Agency Name’ is selected from the dropdown, the points corresponding to that agency will be colored based on the nominal encoding of ‘Agency Name’. If not, they will be colored light gray.</p>
+
+<h2 id="transformations">Transformations:</h2>
+<p>No transfromations were made to the datasets before processing.</p>
+
+<h3 id="similarity-to-homework-7">Similarity to Homework #7</h3>
+
+<p>Both plots are similar to those created in Homework #7, but with modifications to work with Altair. Specifically, the code for creating the plots has been adapted to use Altair’s syntax and functionality. The interactivity in the first plot, which involves a dropdown selection, is a new addition that was not present in Homework #7. The color encoding in the second plot is also a new addition.</p>
+
+<!-- these are written in a combo of html and liquid -->
+
+<div class="left">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/building_inventory.csv">
+  The Data
+</a>
+</div>
+
+<div class="right">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/hansikag/online_cv_public/blob/main/python_notebooks/Workbook.ipynb">
+  The Analysis
+</a>
+</div>
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>A. P. Corgi</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:username@domain.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/hansikag"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.twitter.com/your_username"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.youtube.com/your_channel_name"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#ff0000'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-youtube fa-1x"></i>
+    </a>
+
+</div>
+
+  Theme by <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a> and <a href="https://github.com/4dcu-be/4dcu.be">4dcu.be</a>.
+
+  
+<!--<small id="attribution">
+    theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
+  </small>
+-->
+
+</footer>
+
+
+<!-- Custom page specific js files -->
+  
+    <script src='/assets/js/vega.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/vega-lite.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/vega-embed.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/justcharts.js' type="text/javascript"></script>
+  
+
+
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+<!--
+end of checks! JPN
+-->
+
+</html>
