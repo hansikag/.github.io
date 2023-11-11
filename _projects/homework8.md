@@ -25,5 +25,5 @@ Simple barplot specification:
 </div>
 
 <div class="right">
-{% include elements/button.html link="https://github.com/jnaiman/online_cv_public/blob/main/python_notebooks/Workbook.ipynb" text="The Analysis" %}
+{% include elements/button.html link="https://github.com/hansikag/hansikag.github.io/blob/main/python_notebooks/Workbook.ipynb" text="The Analysis" %}
 </div>
