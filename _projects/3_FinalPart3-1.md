@@ -24,13 +24,13 @@ In addition to the central visualization, I made two contextual visualizations. 
 The ‘Type’ of a Pokémon is another important characteristic. Each Pokémon belongs to one or two types, such as Fire, Water, Grass, etc., which determine its strengths and weaknesses in battles. For instance, Water-type Pokémon are strong against Fire types but weak against Electric types. In our visualizations, we use different colors to represent different types, allowing you to see the distribution of types and how they relate to the Pokémon’s stats.
 
 
-<vegachart schema-url="{{ site.baseurl }}/assets/json/bar_chart.json" style="width: 100%"></vegachart>
+<vegachart schema-url="/assets/json/bar_chart.json" style="width: 100%"></vegachart>
 
 Finally, some Pokémon are designated as ‘Legendary’, indicating that they are extremely rare and possess extraordinary powers. In our dataset, this is represented by a ‘Legendary’ attribute. In our visualizations, we distinguish Legendary Pokémon from others using different shapes, allowing you to easily identify them and observe their stats.
 
 The second contextual visualization is a stacked bar chart showing the count of legendary and non-legendary Pokémon across different generations. This helps us understand how the proportion of legendary Pokémon has evolved over time.
 
-<vegachart schema-url="{{ site.baseurl }}/assets/json/stacked_chart.json" style="width: 100%"></vegachart>
+<vegachart schema-url="/assets/json/stacked_chart.json" style="width: 100%"></vegachart>
 
 
 I made both of these visualizations from the initial dataset:  https://data.world/data-society/pokemon-with-stats
