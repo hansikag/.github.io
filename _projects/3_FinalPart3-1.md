@@ -12,7 +12,7 @@ custom_js:
 
 
 # The Interactive Pokemon Stats Chart
-
+# Documented by: Hansika Gaddamanugu
 The centerpiece of my exploration is an interactive scatter plot that displays the Attack and Defense stats of each Pokémon, color-coded by their primary type (Type 1). The size of each point corresponds to the total stats of the Pokémon. I’ve represented Legendary Pokémon as squares, while non-legendary ones are circles. This plot allows us to observe patterns and trends in the data, such as the correlation between Attack and Defense, or the distribution of stats among different types. You can interact with the plot to explore more details about each Pokémon.
 
 In the world of Pokémon, each creature has unique characteristics that define its abilities in battles. These characteristics include various stats such as Attack, Defense, and Speed, among others. The ‘Attack’ stat determines how much damage a Pokémon can inflict on its opponents, while the ‘Defense’ stat indicates how much damage it can withstand. These stats are crucial in determining the outcome of battles. In our central visualization, we plot these two stats against each other for each Pokémon, providing a comparative view of their offensive and defensive capabilities.
