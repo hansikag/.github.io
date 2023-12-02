@@ -22,12 +22,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Hansika&#39;s IS 445 Page">
-  <meta property="og:description" content="I am definitely not a corgi!">
-  <meta property="og:image" content="https://source.unsplash.com/300x300/?corgi&derpy">
+  <meta property="og:title" content="Unveiling the Mysteries of Pokemon Stats">
+  <meta property="og:description" content="This is a data journal highlighting stats about Pokemon">
+  <meta property="og:image" content="assets/pngs/cars.png">
 
-  <title>Hansika&#39;s IS 445 Page</title>
-  <meta name="description" content="I am definitely not a corgi!">
+  <title>Unveiling the Mysteries of Pokemon Stats</title>
+  <meta name="description" content="This is a data journal highlighting stats about Pokemon">
 
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
@@ -75,24 +75,24 @@
 </nav>
     <div class="col-lg-10 mx-auto mt-5 markdown-body">
   <h1 id="the-interactive-pokemon-stats-chart">The Interactive Pokemon Stats Chart</h1>
-<h1 id="documented-by-hansika-gaddamanugu">Documented by: Hansika Gaddamanugu</h1>
+<h4 id="documented-by-hansika-gaddamanugu">Documented by: Hansika Gaddamanugu</h4>
 <p>The centerpiece of my exploration is an interactive scatter plot that displays the Attack and Defense stats of each Pokémon, color-coded by their primary type (Type 1). The size of each point corresponds to the total stats of the Pokémon. I’ve represented Legendary Pokémon as squares, while non-legendary ones are circles. This plot allows us to observe patterns and trends in the data, such as the correlation between Attack and Defense, or the distribution of stats among different types. You can interact with the plot to explore more details about each Pokémon.</p>
 
 <p>In the world of Pokémon, each creature has unique characteristics that define its abilities in battles. These characteristics include various stats such as Attack, Defense, and Speed, among others. The ‘Attack’ stat determines how much damage a Pokémon can inflict on its opponents, while the ‘Defense’ stat indicates how much damage it can withstand. These stats are crucial in determining the outcome of battles. In our central visualization, we plot these two stats against each other for each Pokémon, providing a comparative view of their offensive and defensive capabilities.</p>
 
-<vegachart schema-url="/_site/assets/json/interactive_chart.json" style="width: 100%"></vegachart>
+<vegachart schema-url="/assets/json/chart.json" style="width: 100%"></vegachart>
 
 <p>In addition to the central visualization, I made two contextual visualizations. The first is a bar chart showing the count of Pokémon for each Type 1. This gives us an idea of the distribution of types in the Pokémon universe.</p>
 
 <p>The ‘Type’ of a Pokémon is another important characteristic. Each Pokémon belongs to one or two types, such as Fire, Water, Grass, etc., which determine its strengths and weaknesses in battles. For instance, Water-type Pokémon are strong against Fire types but weak against Electric types. In our visualizations, we use different colors to represent different types, allowing you to see the distribution of types and how they relate to the Pokémon’s stats.</p>
 
-<vegachart schema-url="/_site/assets/json/bar_chart.json" style="width: 100%"></vegachart>
+<vegachart schema-url="/assets/json/bar_chart.json" style="width: 100%"></vegachart>
 
 <p>Finally, some Pokémon are designated as ‘Legendary’, indicating that they are extremely rare and possess extraordinary powers. In our dataset, this is represented by a ‘Legendary’ attribute. In our visualizations, we distinguish Legendary Pokémon from others using different shapes, allowing you to easily identify them and observe their stats.</p>
 
 <p>The second contextual visualization is a stacked bar chart showing the count of legendary and non-legendary Pokémon across different generations. This helps us understand how the proportion of legendary Pokémon has evolved over time.</p>
 
-<vegachart schema-url="/_site/assets/json/stacked_chart.json" style="width: 100%"></vegachart>
+<vegachart schema-url="/assets/json/stacked_chart.json" style="width: 100%"></vegachart>
 
 <p>I made both of these visualizations from the initial dataset:  https://data.world/data-society/pokemon-with-stats</p>
 
@@ -153,6 +153,17 @@
 
 </footer>
 
+
+<!-- Custom page specific js files -->
+  
+    <script src='/assets/js/vega.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/vega-lite.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/vega-embed.min.js' type="text/javascript"></script>
+  
+    <script src='/assets/js/justcharts.js' type="text/javascript"></script>
+  
 
 
 
