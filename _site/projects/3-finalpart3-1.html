@@ -1,63 +1,186 @@
----
-name: Final Part 3.1
-tools: [Python, HTML, vega-lite]
+<!DOCTYPE html>
 
-description: This is a "showcase" project that uses vega-lite for interactive viz!
-custom_js:
-  - vega.min
-  - vega-lite.min
-  - vega-embed.min
-  - justcharts
----
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+  Updates for JPN Spring 2023
+-->
 
+<html lang="en" class="h-100">
 
-# Plot 1: Frequency of Agencies
+<head>
 
-<vegachart schema-url="{{ site.baseurl }}/assets/json/interactive_chart.json" style="width: 100%"></vegachart>
+  
+  
+  
 
-Write Up for Plot 1:
+  
 
-The first visualization is a bar chart that shows the frequency of buildings owned by each agency. The x-axis represents the ‘Agency Name’ and the y-axis represents the frequency. Each bar in the chart represents an agency, and the height of the bar indicates the number of buildings owned by that agency. The color of the bar is determined by the count, with darker colors indicating higher frequencies. This plot does not involve any data transformations on the analysis side. The interactivity in this plot is limited to the ability to hover over a bar to see the exact count.
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-Encoding for Plot 1: 
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hansika&#39;s IS 445 Page">
+  <meta property="og:description" content="I am definitely not a corgi!">
+  <meta property="og:image" content="https://source.unsplash.com/300x300/?corgi&derpy">
 
-The code I've used is using the Altair library for Python to create a bar chart. In this chart, the encoding types used are nominal (N) and quantitative (Q).
+  <title>Hansika&#39;s IS 445 Page</title>
+  <meta name="description" content="I am definitely not a corgi!">
 
-Nominal (N): In my code, ‘Agency Name’ is encoded as nominal. This means that the ‘Agency Name’ column contains categorical data where no particular order is necessary.
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 
-Quantitative (Q): In my code, the count function (count()) is encoded as quantitative. This means that the count of each ‘Agency Name’ is a measured quantity.
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
 
-The color encoding is also using the count() function, which means the color of the bars will represent the frequency of each ‘Agency Name’.
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css">
 
-## Plot 2: Construction and Acquired Dates for different Agencies
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 
-<vegachart schema-url="{{ site.baseurl }}/assets/json/constructed.json" style="width: 100%"></vegachart>
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
 
-Write Up for Plot 2:
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
 
-The second visualization is a scatter plot that represents the relationship between the year a building was constructed and the year it was acquired by different agencies. The x-axis represents the ‘Year Constructed’ and the y-axis represents the ‘Year Acquired’. Each point on the plot represents a building, and the color of the point indicates the agency that owns the building. The color encoding is based on the ‘Agency Name’ field. A dropdown selection is provided for users to select a specific agency, and the points corresponding to that agency are highlighted in the plot. This interactivity allows users to focus on the data for a specific agency, making the visualization more clear and interesting. The data transformations involved in this plot include filtering the data based on the selected ‘Agency Name’.
+</head>
 
-Encoding for Plot 2: 
+<body class="h-100 d-flex flex-column">
 
-Quantitative (Q): In my code, ‘Year Constructed’ and ‘Year Acquired’ are encoded as quantitative. This means that these columns contain numerical data that represent measured quantities.
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
 
-Nominal (N): In my code, ‘Agency Name’ is encoded as nominal. This means that the ‘Agency Name’ column contains categorical data where no particular order is necessary.
+  <a class="navbar-brand" href="/"><h5><b>Hansika's IS 445 Page</b></h5></a>
 
-The color encoding is using a conditional statement based on the selection. If a particular ‘Agency Name’ is selected from the dropdown, the points corresponding to that agency will be colored based on the nominal encoding of ‘Agency Name’. If not, they will be colored light gray.
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
 
-## Transformations:
-No transfromations were made to the datasets before processing. 
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/projects/">Projects</a>
 
-### Similarity to Homework #7
+      <a class="nav-item nav-link " href="/blog/">Blog</a>
 
-Both plots are similar to those created in Homework #7, but with modifications to work with Altair. Specifically, the code for creating the plots has been adapted to use Altair’s syntax and functionality. The interactivity in the first plot, which involves a dropdown selection, is a new addition that was not present in Homework #7. The color encoding in the second plot is also a new addition.
+      <a class="nav-item nav-link " href="/about/">About</a>
 
-<!-- these are written in a combo of html and liquid --> 
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1 id="plot-1-pokemon-insights-unveiling-the-mysteries-of-pokemon-stats">Plot 1: Pokemon Insights: Unveiling the Mysteries of Pokemon Stats</h1>
+
+<p>The centerpiece of my exploration is an interactive scatter plot that displays the Attack and Defense stats of each Pokémon, color-coded by their primary type (Type 1). The size of each point corresponds to the total stats of the Pokémon. I’ve represented Legendary Pokémon as squares, while non-legendary ones are circles. This plot allows us to observe patterns and trends in the data, such as the correlation between Attack and Defense, or the distribution of stats among different types. You can interact with the plot to explore more details about each Pokémon.</p>
+
+<p>In the world of Pokémon, each creature has unique characteristics that define its abilities in battles. These characteristics include various stats such as Attack, Defense, and Speed, among others. The ‘Attack’ stat determines how much damage a Pokémon can inflict on its opponents, while the ‘Defense’ stat indicates how much damage it can withstand. These stats are crucial in determining the outcome of battles. In our central visualization, we plot these two stats against each other for each Pokémon, providing a comparative view of their offensive and defensive capabilities.</p>
+
+<vegachart schema-url="/assets/json/interactive_chart.json" style="width: 100%"></vegachart>
+
+<p>In addition to the central visualization, we have two contextual visualizations. The first is a bar chart showing the count of Pokémon for each Type 1. This gives us an idea of the distribution of types in the Pokémon universe.</p>
+
+<p>The ‘Type’ of a Pokémon is another important characteristic. Each Pokémon belongs to one or two types, such as Fire, Water, Grass, etc., which determine its strengths and weaknesses in battles. For instance, Water-type Pokémon are strong against Fire types but weak against Electric types. In our visualizations, we use different colors to represent different types, allowing you to see the distribution of types and how they relate to the Pokémon’s stats.</p>
+
+<vegachart schema-url="/assets/json/bar_chart.json" style="width: 100%"></vegachart>
+
+<p>The second contextual visualization is a stacked bar chart showing the count of legendary and non-legendary Pokémon across different generations. This helps us understand how the proportion of legendary Pokémon has evolved over time.</p>
+
+<p>Finally, some Pokémon are designated as ‘Legendary’, indicating that they are extremely rare and possess extraordinary powers. In our dataset, this is represented by a ‘Legendary’ attribute. In our visualizations, we distinguish Legendary Pokémon from others using different shapes, allowing you to easily identify them and observe their stats.</p>
+
+<vegachart schema-url="/assets/json/stacked_chart.json" style="width: 100%"></vegachart>
+
+<!-- these are written in a combo of html and liquid -->
 
 <div class="left">
-{% include elements/button.html link="https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/building_inventory.csv" text="The Data" %}
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/building_inventory.csv">
+  The Data
+</a>
 </div>
 
 <div class="right">
-{% include elements/button.html link="https://github.com/hansikag/online_cv_public/blob/main/python_notebooks/Workbook.ipynb" text="The Analysis" %}
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/hansikag/online_cv_public/blob/main/python_notebooks/Workbook.ipynb">
+  The Analysis
+</a>
 </div>
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>A. P. Corgi</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:username@domain.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/hansikag"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.twitter.com/your_username"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#1da1f2'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-twitter fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.youtube.com/your_channel_name"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#ff0000'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-youtube fa-1x"></i>
+    </a>
+
+</div>
+
+  Theme by <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a> and <a href="https://github.com/4dcu-be/4dcu.be">4dcu.be</a>.
+
+  
+<!--<small id="attribution">
+    theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
+  </small>
+-->
+
+</footer>
+
+
+
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+<!--
+end of checks! JPN
+-->
+
+</html>
